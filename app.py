@@ -229,7 +229,7 @@ with tab_params:
     st.download_button('Download parameter table (CSV)',params.to_csv(index=False).encode(),
         file_name=f'processing_parameters_{snap["hash"]}.csv',mime='text/csv')
     st.markdown('**Latest five observations selected for each product**')
-    view=snap['latest'][['order_id','product','date','WS1','WS2','WS3','WS4','WS5-7','WS8']].copy()
+    view=snap['latest'][['row_sequence','order_id','product','WS1','WS2','WS3','WS4','WS5-7','WS8']].copy()
     st.dataframe(view,hide_index=True,use_container_width=True)
     st.markdown('**Current machine reliability parameters**')
     rtab=pd.DataFrame([{'Machine':m,'MTTF (min)':v['mttf_s']/60,'η (min)':v['eta_s']/60,
